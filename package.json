@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "mongoose": "^5.11.8",
+    "node": "^15.4.0",
+    "nodemon": "^2.0.6"
+  },
+  "name": "fsopen-part4",
+  "version": "1.0.0",
+  "description": "part 4 of fullstackopen curriculum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Mahdeen (Neo) Khan",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.21.5"
+  }
+}
