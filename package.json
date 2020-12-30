@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http": "^0.0.1-security",
     "mongoose": "^5.11.8",
@@ -16,10 +17,18 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "Mahdeen (Neo) Khan",
+  "author": "Mahdeen (Neo)",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.16.0",
     "eslint-plugin-react": "^7.21.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mskNeo/fsopen-4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mskNeo/fsopen-4/issues"
+  },
+  "homepage": "https://github.com/mskNeo/fsopen-4#readme"
 }

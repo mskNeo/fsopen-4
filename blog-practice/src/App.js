@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import blogService from './services/blogs'
+import Posts from './components/Posts'
+import Form from './components/Form'
+import './style.css'
 
-function App() {
+const App = () => {
+  const [ blogs, setBlogs ] = useState([])
+  const [ post, setPost ] = useState('')
+  const [ author, setAuthor ] = useState('')
+
+  useEffect(() => {
+    blogService
+      .getAll()
+      .then(response => {
+        setBlogs(response)
+      })
+    }, [])
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const blogObject = {
+      title: post,
+      author: author,
+      url: '/api/4',
+      likes: 0
+    }
+
+    blogService
+      .create(blogObject)
+      .then(returnedPost => {
+        setBlogs((blogs) => blogs.concat(returnedPost))
+        setPost('')
+        setAuthor('')
+      })
+  }
+
+  const handlePostChange = (event) => setPost(event.target.value)
+  const handleAuthorChange = (event) => setAuthor(event.target.value)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Blogs</h1>
+
+        <Form 
+          submit={handleSubmit} 
+          post={post} 
+          postChange={handlePostChange}
+          author={author}
+          authorChange={handleAuthorChange}
+          />
+
+      <div class='content'>
+        <Posts blogItems={blogs} />
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
